@@ -1,0 +1,33 @@
+import random
+def game():
+    print("\nWelcome to Rock, Paper, Scissors! ✊✋✌️\n")
+    choices = ["Rock", "Paper", "Scissors"]
+
+    while True:
+        print("Choose one:\n" "1. Rock \n"  "2. Paper\n"  "3. Scissors\n" )
+        pchoice = input("Enter your choice (1/2/3):")
+
+        if pchoice not in ["1", "2", "3"]:
+            print("Invalid choice! Please enter 1, 2, or 3.\n")
+            continue
+
+        pchoice = choices[int(pchoice) - 1].lower()
+        cchoice = random.choice(choices).lower()
+
+        print(f"Computer chose: {cchoice.capitalize()}")
+
+        if pchoice == cchoice:
+            print("It's a tie! 🤝")
+        elif (pchoice == "rock" and cchoice == "scissors") or \
+             (pchoice == "paper" and cchoice == "rock") or \
+             (pchoice == "scissors" and cchoice == "paper"):
+            print("You win! 🎉")
+        else:
+            print("You lose! Better luck next time 👍")
+
+        replay = input("Do you want to continue? (1.yes/2.no): ").lower()
+        if replay != "1":
+            print("Thanks for playing! 😊")
+            break
+
+game()
