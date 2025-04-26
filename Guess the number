@@ -1,0 +1,49 @@
+import random
+def guessthenumber():
+    print("Welcome to the Number Guessing Game!👋")
+    print("I'm thinking of a number between 1 to 100.✌️")
+    print("You have chances to guess the correct number based on your choice.😀")
+
+    number = random.randint(1, 100)
+    print()
+
+    print("\nPlease select the difficulty level:")
+    print("1. Easy (10 chances)😀")
+    print("2. Medium (5 chances)😄")
+    print("3. Hard (3 chances)😑\n")
+
+
+    choice = int(input("Enter your choice [1,2,3]: "))
+
+    if choice == 1:
+        attempts = 10
+        print("Great! You have selected the Easy difficulty level.😊")
+    elif choice == 2:
+        attempts = 5
+        print("Great! You have selected the Medium difficulty level.😊")
+    else:
+        attempts = 3
+        print("Great! You have selected the Hard difficulty level.😊")
+
+    print("Let's start the game!🫡")
+
+    for i in range(attempts):
+        guess = int(input("Enter your guess: "))
+        i = i + 1
+        if guess == number:
+            print(f"🎉 Congratulations! You guessed the correct number in {i} attempts.🥳")
+            break
+        elif guess < number:
+            print(f"The number is greater than {guess}. Try again!")
+        else:
+            print(f"The number is less than {guess}. Try again!")
+
+    else:
+        print(f"😞 Sorry! You've used all your attempts. The correct number was {number}.")
+
+guessthenumber()
+again = int(input("Do you want to continue tht game again [1.yes / 2.No ] : "))
+if again == 1:
+    guessthenumber()
+else:
+    print("Thanks for playing")
